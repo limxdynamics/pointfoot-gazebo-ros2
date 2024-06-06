@@ -1,0 +1,10 @@
+<library path="poinfoot_gazebo_hardware_plugin">
+  <class
+    name="pointfoot_gazebo/PointFootHWSim"
+    type="pointfoot_gazebo::PointFootHWSim"
+    base_class_type="gazebo_ros2_control::GazeboSystemInterface">
+    <description>
+      The quadruped robot simulation interface which constructs joint handles from an SDF/URDF.
+    </description>
+  </class>
+</library>
