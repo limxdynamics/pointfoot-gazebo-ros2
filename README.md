@@ -63,7 +63,7 @@ sudo apt install ros-humble-urdf \
 
   ```
   cd ~/limx_ws/src
-  git clone -b feature/humble https://github.com/limxdynamics/pointfoot-gazebo-ros2.git
+  git clone https://github.com/limxdynamics/pointfoot-gazebo-ros2.git
   ```
 
 - 编译工程：
