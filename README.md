@@ -19,6 +19,7 @@ sudo apt install ros-foxy-urdf \
                  ros-foxy-control-msgs \
                  ros-foxy-controller-interface \
                  ros-foxy-gazebo-* \
+                 ros-foxy-rviz* \
                  ros-foxy-rqt-gui \
                  ros-foxy-rqt-robot-steering \
                  ros-foxy-plotjuggler* \
@@ -66,11 +67,17 @@ sudo apt install ros-foxy-urdf \
   git clone -b feature/foxy https://github.com/limxdynamics/pointfoot-gazebo-ros2.git
   ```
 
+- 下载可视化工具
+    ```Bash
+    cd ~/limx_ws/src
+    git clone https://github.com/limxdynamics/robot-visualization.git
+    ```
+
 - 编译工程：
 
   ```
   cd ~/limx_ws
-  colcon build
+  colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
   ```
 
 - 运行仿真：可以设置empty_world.launch.py文件的`use_support`参数为 `true`，执行下面Shell命令运行仿真：
@@ -86,6 +93,6 @@ sudo apt install ros-foxy-urdf \
   source install/setup.bash
   ros2 run pointfoot_sdk_lowlevel pf_groupJoints_move 127.0.0.1
   ```
-  ![](doc/simulator.gif)  ![(doc/simulator.gif)  ![(doc/simulator.gif)
+  ![](doc/simulator.gif)
 
   
