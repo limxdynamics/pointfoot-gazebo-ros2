@@ -22,6 +22,7 @@ sudo apt install ros-humble-urdf \
                  ros-humble-rqt-gui \
                  ros-humble-rqt-robot-steering \
                  ros-humble-plotjuggler* \
+                 ros-humble-rviz* \
                  ros-humble-control-toolbox \
                  ros-humble-ros2-control \
                  ros-humble-ros2-controllers \
@@ -70,7 +71,7 @@ sudo apt install ros-humble-urdf \
 
   ```
   cd ~/limx_ws
-  colcon build
+  colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
   ```
 
 - 运行仿真：可以设置empty_world.launch.py文件的`use_support`参数为 `true`，执行下面Shell命令运行仿真：
@@ -87,6 +88,6 @@ sudo apt install ros-humble-urdf \
   source install/setup.bash
   ros2 run pointfoot_sdk_lowlevel pf_groupJoints_move 127.0.0.1
   ```
-  ![](doc/simulator.gif)  ![(doc/simulator.gif)  ![(doc/simulator.gif)
+  ![](doc/simulator.gif) 
 
   
