@@ -4,35 +4,35 @@
 
 ## 1. 搭建开发环境
 
-我们推荐在 Ubuntu 20.04 操作系统上建立基于 ROS 2 Foxy 的算法开发环境。 安装请参考文档： https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html ，选择“ros-foxy-desktop”进行安装。ROS 2 Foxy 安装完成后，Bash 终端输入以下 Shell 命令，安装开发环境所依赖的库：
+在 Ubuntu 20.04 操作系统上建立基于 ROS 2 Foxy 的算法开发环境。 安装请参考文档： https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html ，选择“ros-foxy-desktop”进行安装。ROS 2 Foxy 安装完成后，Bash 终端输入以下 Shell 命令，安装开发环境所依赖的库：
 
-```
-sudo apt update
-sudo apt install ros-foxy-urdf \
-                 ros-foxy-urdfdom \
-                 ros-foxy-urdfdom-headers \
-                 ros-foxy-kdl-parser \
-                 ros-foxy-hardware-interface \
-                 ros-foxy-controller-manager \
-                 ros-foxy-controller-interface \
-                 ros-foxy-controller-manager-msgs \
-                 ros-foxy-control-msgs \
-                 ros-foxy-controller-interface \
-                 ros-foxy-gazebo-* \
-                 ros-foxy-rviz* \
-                 ros-foxy-rqt-gui \
-                 ros-foxy-rqt-robot-steering \
-                 ros-foxy-plotjuggler* \
-                 ros-foxy-control-toolbox \
-                 ros-foxy-ros2-control \
-                 ros-foxy-ros2-controllers \
-                 ros-foxy-robot-controllers \
-                 ros-foxy-robot-controllers-interface \
-                 ros-foxy-robot-controllers-msgs \
-                 ros-dev-tools \
-                 cmake build-essential libpcl-dev libeigen3-dev libopencv-dev libmatio-dev \
-                 python3-pip libboost-all-dev libtbb-dev liburdfdom-dev liborocos-kdl-dev -y
-```
+  ```
+  sudo apt update
+  sudo apt install ros-foxy-urdf \
+                  ros-foxy-urdfdom \
+                  ros-foxy-urdfdom-headers \
+                  ros-foxy-kdl-parser \
+                  ros-foxy-hardware-interface \
+                  ros-foxy-controller-manager \
+                  ros-foxy-controller-interface \
+                  ros-foxy-controller-manager-msgs \
+                  ros-foxy-control-msgs \
+                  ros-foxy-controller-interface \
+                  ros-foxy-gazebo-* \
+                  ros-foxy-rviz* \
+                  ros-foxy-rqt-gui \
+                  ros-foxy-rqt-robot-steering \
+                  ros-foxy-plotjuggler* \
+                  ros-foxy-control-toolbox \
+                  ros-foxy-ros2-control \
+                  ros-foxy-ros2-controllers \
+                  ros-foxy-robot-controllers \
+                  ros-foxy-robot-controllers-interface \
+                  ros-foxy-robot-controllers-msgs \
+                  ros-dev-tools \
+                  cmake build-essential libpcl-dev libeigen3-dev libopencv-dev libmatio-dev \
+                  python3-pip libboost-all-dev libtbb-dev liburdfdom-dev liborocos-kdl-dev -y
+  ```
 
 ## 2. 创建工作空间
 
@@ -59,19 +59,17 @@ sudo apt install ros-foxy-urdf \
   cd ~/limx_ws/src
   git clone https://github.com/limxdynamics/pointfoot-sdk-lowlevel.git
   ```
-
+- 下载可视化工具
+    ```Bash
+    cd ~/limx_ws/src
+    git clone https://github.com/limxdynamics/robot-visualization.git
+    ```
 - 下载 Gazebo 仿真器：
 
   ```
   cd ~/limx_ws/src
   git clone -b feature/foxy https://github.com/limxdynamics/pointfoot-gazebo-ros2.git
   ```
-
-- 下载可视化工具
-    ```Bash
-    cd ~/limx_ws/src
-    git clone https://github.com/limxdynamics/robot-visualization.git
-    ```
 
 - 编译工程：
 
