@@ -4,34 +4,31 @@
 
 ## 1. 搭建开发环境
 
-我们推荐在 Ubuntu 22.04 操作系统上建立基于 ROS 2 Humble 的算法开发环境。 安装请参考文档： https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html ，选择“ros-humble-desktop”进行安装。ROS 2 Humble 安装完成后，Bash 终端输入以下 Shell 命令，安装开发环境所依赖的库：
+安装ROS 2 Iron：在 Ubuntu 22.04 操作系统上建立基于 ROS 2 Iron 的算法开发环境。 安装请参考文档： https://docs.ros.org/en/iron/Installation/Ubuntu-Install-Debians.html ，选择“ros-iron-desktop”进行安装。ROS 2 Iron 安装完成后，Bash 终端输入以下 Shell 命令，安装开发环境所依赖的库：
 
 ```
 sudo apt update
-sudo apt install ros-humble-urdf \
-                 ros-humble-urdfdom \
-                 ros-humble-urdfdom-headers \
-                 ros-humble-kdl-parser \
-                 ros-humble-hardware-interface \
-                 ros-humble-controller-manager \
-                 ros-humble-controller-interface \
-                 ros-humble-controller-manager-msgs \
-                 ros-humble-control-msgs \
-                 ros-humble-controller-interface \
-                 ros-humble-gazebo-* \
-                 ros-humble-rqt-gui \
-                 ros-humble-rqt-robot-steering \
-                 ros-humble-plotjuggler* \
-                 ros-humble-rviz* \
-                 ros-humble-control-toolbox \
-                 ros-humble-ros2-control \
-                 ros-humble-ros2-controllers \
-                 ros-humble-robot-controllers \
-                 ros-humble-robot-controllers-interface \
-                 ros-humble-robot-controllers-msgs \
-                 ros-dev-tools \
-                 cmake build-essential libpcl-dev libeigen3-dev libopencv-dev libmatio-dev \
-                 python3-pip libboost-all-dev libtbb-dev liburdfdom-dev liborocos-kdl-dev -y
+sudo apt install ros-iron-urdf \
+             ros-iron-urdfdom \
+             ros-iron-urdfdom-headers \
+             ros-iron-kdl-parser \
+             ros-iron-hardware-interface \
+             ros-iron-controller-manager \
+             ros-iron-controller-interface \
+             ros-iron-controller-manager-msgs \
+             ros-iron-control-msgs \
+             ros-iron-controller-interface \
+             ros-iron-gazebo-* \
+             ros-iron-rviz* \
+             ros-iron-rqt-gui \
+             ros-iron-rqt-robot-steering \
+             ros-iron-plotjuggler* \
+             ros-iron-control-toolbox \
+             ros-iron-ros2-control \
+             ros-iron-ros2-controllers \
+             ros-dev-tools \
+             cmake build-essential libpcl-dev libeigen3-dev libopencv-dev libmatio-dev \
+             python3-pip libboost-all-dev libtbb-dev liburdfdom-dev liborocos-kdl-dev -y
 ```
 
 ## 2. 创建工作空间
@@ -59,6 +56,11 @@ sudo apt install ros-humble-urdf \
   cd ~/limx_ws/src
   git clone https://github.com/limxdynamics/pointfoot-sdk-lowlevel.git
   ```
+- 下载可视化工具
+    ```Bash
+    cd ~/limx_ws/src
+    git clone https://github.com/limxdynamics/robot-visualization.git
+    ```
 
 - 下载 Gazebo 仿真器：
 
@@ -77,7 +79,6 @@ sudo apt install ros-humble-urdf \
 - 运行仿真：可以设置empty_world.launch.py文件的`use_support`参数为 `true`，执行下面Shell命令运行仿真：
 
   ```
-  source /usr/share/gazebo/setup.bash
   source install/setup.bash
   ros2 launch pointfoot_gazebo empty_world.launch.py
   ```
