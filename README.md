@@ -4,7 +4,7 @@
 
 ## 1. 搭建开发环境
 
-我们推荐在 Ubuntu 22.04 操作系统上建立基于 ROS 2 Humble 的算法开发环境。 安装请参考文档： https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html ，选择“ros-humble-desktop”进行安装。ROS 2 Humble 安装完成后，Bash 终端输入以下 Shell 命令，安装开发环境所依赖的库：
+在 Ubuntu 22.04 操作系统上建立基于 ROS 2 Humble 的算法开发环境。 安装请参考文档： https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html ，选择“ros-humble-desktop”进行安装。ROS 2 Humble 安装完成后，Bash 终端输入以下 Shell 命令，安装开发环境所依赖的库：
 
 ```
 sudo apt update
@@ -59,12 +59,17 @@ sudo apt install ros-humble-urdf \
   cd ~/limx_ws/src
   git clone https://github.com/limxdynamics/pointfoot-sdk-lowlevel.git
   ```
+- 下载可视化工具
+    ```Bash
+    cd ~/limx_ws/src
+    git clone https://github.com/limxdynamics/robot-visualization.git
+    ```
 
 - 下载 Gazebo 仿真器：
 
   ```
   cd ~/limx_ws/src
-  git clone https://github.com/limxdynamics/pointfoot-gazebo-ros2.git
+  git clone -b feature/humble https://github.com/limxdynamics/pointfoot-gazebo-ros2.git
   ```
 
 - 编译工程：
