@@ -5,11 +5,19 @@ from launch_ros.actions import Node
 from launch.substitutions import Command, LaunchConfiguration, PathJoinSubstitution, ThisLaunchFileDir
 from launch_ros.substitutions import FindPackageShare
 import os
+import sys
 
 def generate_launch_description():
+    robot_type = os.getenv("ROBOT_TYPE")
+
+    # Check if the ROBOT_TYPE environment variable is set, otherwise exit with an error
+    if not robot_type:
+        print("Error: Please set the ROBOT_TYPE using 'export ROBOT_TYPE=<robot_type>'.")
+        sys.exit(1)
+
     # Get URDF file path
     urdf_file = PathJoinSubstitution(
-        [FindPackageShare("robot_description"), "pointfoot/xacro", "robot.xacro"]
+        [FindPackageShare("robot_description"), "pointfoot/"+ robot_type +"/xacro", "robot.xacro"]
     )
 
     # Load the URDF file
