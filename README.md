@@ -88,10 +88,10 @@ sudo apt install ros-iron-urdf \
     └── PF_P441C2
     ```
 
-  - 以 `PF_P441A` 为例，设置机器人类型：
+  - 以`PF_P441C`（请根据实际机器人类型进行替换）为例，设置机器人型号类型：
 
     ```
-    echo 'export ROBOT_TYPE=PF_P441A' >> ~/.bashrc && source ~/.bashrc
+    echo 'export ROBOT_TYPE=PF_P441C' >> ~/.bashrc && source ~/.bashrc
     ```
 
 - 运行仿真：可以设置empty_world.launch.py文件的`use_support`参数为 `true`，执行下面Shell命令运行仿真：
