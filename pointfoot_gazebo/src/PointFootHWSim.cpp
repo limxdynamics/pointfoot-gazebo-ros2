@@ -22,6 +22,7 @@
 #include "pointfoot_gazebo/PointFootHWSim.h"
 
 static limxsdk::PointFootSim *pf;
+static int motor_number;
 
 struct MimicJoint
 {
@@ -122,8 +123,10 @@ namespace pointfoot_gazebo
     pf = limxsdk::PointFootSim::getInstance();
     pf->init("127.0.0.1");
 
+    motor_number = pf->getMotorNumber();
+
     // Write the number of motors in the robotCmdBuffer_
-    robotCmdBuffer_.writeFromNonRT(limxsdk::RobotCmd(pf->getMotorNumber()));
+    robotCmdBuffer_.writeFromNonRT(limxsdk::RobotCmd(motor_number));
 
     // Subscribe to robot command messages and write them to robotCmdBuffer_
     pf->subscribeRobotCmdForSim([this](const limxsdk::RobotCmdConstPtr &msg)
@@ -634,7 +637,7 @@ namespace pointfoot_gazebo
     }
 
     // Publish robot state for simulation
-    if (this->dataPtr_->joint_names_.size() == pf->getMotorNumber())
+    if (this->dataPtr_->joint_names_.size() == motor_number)
     {
       limxsdk::RobotState state;
       state.q.resize(this->dataPtr_->joint_names_.size());
@@ -712,7 +715,7 @@ namespace pointfoot_gazebo
       }
     }
 
-    if (this->dataPtr_->joint_names_.size() == pf->getMotorNumber())
+    if (this->dataPtr_->joint_names_.size() == motor_number)
     {
       // Update joint data with commands from robot command buffer
       auto robotcmd = *robotCmdBuffer_.readFromRT();
@@ -771,12 +774,20 @@ namespace pointfoot_gazebo
     {
       joint_index = 2;
     }
+    else if (jointName.find("wheel") != std::string::npos)
+    {
+      joint_index = 3;
+    }
+    else if (jointName.find("ankle") != std::string::npos)
+    {
+      joint_index = 3;
+    }
     else
     {
       return -1;
     }
 
-    return (leg_index * 3 + joint_index);
+    return (leg_index * motor_number / 2 + joint_index);
   }
 
 } // namespace pointfoot_gazebo
