@@ -73,6 +73,7 @@ sudo apt install ros-iron-urdf \
 
   ```
   cd ~/limx_ws
+  source /opt/ros/iron/setup.bash
   colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
   ```
 
@@ -97,6 +98,7 @@ sudo apt install ros-iron-urdf \
 - 运行仿真：可以设置empty_world.launch.py文件的`use_support`参数为 `true`，执行下面Shell命令运行仿真：
 
   ```
+  source /opt/ros/iron/setup.bash
   source install/setup.bash
   ros2 launch pointfoot_gazebo empty_world.launch.py
   ```
@@ -104,6 +106,7 @@ sudo apt install ros-iron-urdf \
 - 运行控制例程，确保仿真器中机器人有运动，说明仿真环境搭建完成：
 
   ```
+  source /opt/ros/iron/setup.bash
   source install/setup.bash
   ros2 run pointfoot_sdk_lowlevel pf_groupJoints_move 127.0.0.1
   ```
