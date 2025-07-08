@@ -64,7 +64,7 @@ You can create an algorithm development workspace by following these steps:
 
   ```
   cd ~/limx_ws/src
-  git clone https://github.com/limxdynamics/pointfoot-gazebo-ros2.git
+  git clone -b feature/humble https://github.com/limxdynamics/pointfoot-gazebo-ros2.git
   ```
 
 - Compile Project:
