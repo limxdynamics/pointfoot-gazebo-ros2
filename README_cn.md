@@ -1,9 +1,10 @@
-# English | [简体中文](README.md)
+# [English](README.md) | 简体中文
 # pointfoot-gazebo-ros2
 
-## 1. Set up the Development Environment 
+## 1. 搭建开发环境
 
-Install ROS 2 Iron: Set up a ROS 2 Iron-based algorithm Development Environment on the Ubuntu 22.04 operating system. For installation, please refer to the documentation: https://docs.ros.org/en/iron/Installation/Ubuntu-Install-Debians.html, and choose "ros-iron-desktop" for installation. After the installation of ROS 2 Iron is completed, enter the following Shell commands in the Bash end point to install the libraries required by the Development Environment:
+安装 ROS 2 Iron：在 Ubuntu 22.04 操作系统上建立基于 ROS 2 Iron 的算法开发环境。 安装请参考文档： https://docs.ros.org/en/iron/Installation/Ubuntu-Install-Debians.html ，选择“ros-iron-desktop”进行安装。ROS 2 Iron 安装完成后，Bash 终端输入以下 Shell 命令，安装开发环境所依赖的库：
+
 ```
 sudo apt update
 sudo apt install ros-iron-urdf \
@@ -29,45 +30,47 @@ sudo apt install ros-iron-urdf \
              python3-pip libboost-all-dev libtbb-dev liburdfdom-dev liborocos-kdl-dev -y
 ```
 
-## 2. Create Workspace
+## 2. 创建工作空间
 
-You can create an algorithm development workspace by following these steps: 
-- Open a Bash end point.
-- Create a new directory to store the workspace. For example, you can create a directory named "limx_ws" under the user's home directory:
+可以按照以下步骤，创建一个算法开发工作空间：
+
+- 打开一个 Bash 终端。
+
+- 创建一个新目录来存放工作空间。例如，可以在用户的主目录下创建一个名为“limx_ws”的目录：
 
   ```
   mkdir -p ~/limx_ws/src
   ```
 
-- Download the robot model description file
+- 下载机器人模型描述文件
 
   ```
   cd ~/limx_ws/src
   git clone https://github.com/limxdynamics/robot-description.git
   ```
 
-- Download the Motion Control Development Interface:
+- 下载运动控制开发接口：
 
   ```
   cd ~/limx_ws/src
   git clone https://github.com/limxdynamics/limxsdk-lowlevel.git
   ```
 
-- Download Visualization Tool
+- 下载可视化工具
 
   ```Bash
   cd ~/limx_ws/src
   git clone https://github.com/limxdynamics/robot-visualization.git
   ```
 
-- Download Gazebo Simulator:
+- 下载 Gazebo 仿真器：
 
   ```
   cd ~/limx_ws/src
   git clone https://github.com/limxdynamics/pointfoot-gazebo-ros2.git
   ```
 
-- Compile Project:
+- 编译工程：
 
   ```
   cd ~/limx_ws
@@ -75,8 +78,9 @@ You can create an algorithm development workspace by following these steps:
   colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
   ```
 
-- Select robot type
-  - List available robot types via the Shell command tree -L 1 src/robot-description/pointfoot : 
+- 选择机器人类型
+
+  - 通过 Shell 命令 `tree -L 1 src/robot-description/pointfoot ` 列出可用的机器人类型：
 
     ```
     src/robot-description/pointfoot
@@ -89,13 +93,13 @@ You can create an algorithm development workspace by following these steps:
     └── WF_TRON1A
     ```
 
-  - TakingPF_P441C (please replace it according to the actual robot type) as an example, set the robot model type:
+  - 以`PF_P441C`（请根据实际机器人类型进行替换）为例，设置机器人型号类型：
 
     ```
     echo 'export ROBOT_TYPE=PF_P441C' >> ~/.bashrc && source ~/.bashrc
     ```
 
-- Run the simulation: You can set the use_support parameter of the empty_world.launch.py file to true, and execute the following Shell command to run the simulation:
+- 运行仿真：可以设置 empty_world.launch.py 文件的`use_support`参数为 `true`，执行下面 Shell 命令运行仿真：
 
   ```
   source /opt/ros/iron/setup.bash
@@ -103,7 +107,7 @@ You can create an algorithm development workspace by following these steps:
   ros2 launch pointfoot_gazebo empty_world.launch.py
   ```
 
-- Run the control routine to ensure that the robot in the simulator is moving, indicating that the simulation environment has been successfully set up:
+- 运行控制例程，确保仿真器中机器人有运动，说明仿真环境搭建完成：
 
   ```
   source /opt/ros/iron/setup.bash
