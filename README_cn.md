@@ -1,4 +1,4 @@
-# [English](README.md) | 简体中文
+# [English](README.md) | 中文
 # pointfoot-gazebo-ros2
 
 ## 1. 搭建开发环境
