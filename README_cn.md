@@ -1,5 +1,5 @@
 # [English](README.md) | 中文
-# pointfoot-gazebo-ros2
+# tron1-gazebo-ros2
 
 ## 1. 搭建开发环境
 
@@ -68,7 +68,7 @@ sudo apt install ros-foxy-urdf \
 
   ```
   cd ~/limx_ws/src
-  git clone -b feature/foxy https://github.com/limxdynamics/pointfoot-gazebo-ros2.git
+  git clone -b feature/foxy https://github.com/limxdynamics/tron1-gazebo-ros2.git
   ```
 
 - 编译工程：
