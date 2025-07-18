@@ -1,5 +1,5 @@
 # English | [中文](README_cn.md)
-# pointfoot-gazebo-ros2
+# tron1-gazebo-ros2
 
 ## 1. Set up the Development Environment 
 
@@ -64,7 +64,7 @@ You can create an algorithm development workspace by following these steps:
 
   ```
   cd ~/limx_ws/src
-  git clone https://github.com/limxdynamics/pointfoot-gazebo-ros2.git
+  git clone https://github.com/limxdynamics/tron1-gazebo-ros2.git
   ```
 
 - Compile Project:
