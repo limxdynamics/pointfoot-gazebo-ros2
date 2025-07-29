@@ -3,7 +3,7 @@
 
 ## 1. Set up the Development Environment 
 
-Install ROS 2 Foxy: Set up a ROS 2 Foxy-based algorithm Development Environment on the Ubuntu 22.04 operating system. For installation, please refer to the documentation: https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html, and choose "ros-foxy-desktop" for installation. After the installation of ROS 2 Foxy is completed, enter the following Shell commands in the Bash end point to install the libraries required by the Development Environment:
+Install ROS 2 Foxy: Set up a ROS 2 Foxy-based algorithm Development Environment on the Ubuntu 20.04 operating system. For installation, please refer to the documentation: https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html, and choose "ros-foxy-desktop" for installation. After the installation of ROS 2 Foxy is completed, enter the following Shell commands in the Bash end point to install the libraries required by the Development Environment:
 ```
 sudo apt update
 sudo apt install ros-foxy-urdf \
